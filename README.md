@@ -1,1 +1,3 @@
-# SecureBanking-fullapp
+# Backend
+# Frontend
+# Database
