@@ -1,0 +1,149 @@
+/* General styles for the main container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align for better layout */
+    justify-content: center;
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 100px;
+    padding: 0 20px;
+}
+
+/* Styles for the main introductory section */
+.home-div {
+    background-image: url('../images/pex3.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 520px;
+    color: #fff;
+    border-radius: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styles for each content block */
+.home-block {
+    display: flex;
+    align-items: center;
+    margin: 20px 20px; /* Adjust margin for spacing */
+    background-color: #fff;
+    border-radius: 5%;
+    height: 300px;
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* For absolute positioning */
+}
+
+/* Image within each block */
+.home-block-image {
+    background-size: cover;
+    width: 40%;
+    height: 100%;
+    border-radius: 5%;
+    position: absolute; /* Position absolute for alignment */
+}
+
+/* Text within each block */
+.home-block-text {
+    flex: 1;
+    color: #002C54;
+    font-size: 1.2rem;
+    padding: 20px;
+    text-align: left;
+    position: absolute;
+    top: 50%; /* Center text vertically */
+    transform: translateY(-50%);
+}
+
+/* Odd blocks aligned to the left */
+.home-block:nth-child(odd) {
+    justify-content: flex-start;
+    margin-left: 80px;
+    margin-right: auto;
+}
+
+.home-block:nth-child(odd) .home-block-image {
+    left: 0; /* Position image on the left */
+}
+
+.home-block:nth-child(odd) .home-block-text {
+    left: 10%; /* Position text to the right of image */
+    padding-left: calc(40% + 20px); /* Offset by image width + padding */
+}
+
+/* Even blocks aligned to the right */
+.home-block:nth-child(even) {
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 140px;
+}
+
+.home-block:nth-child(even) .home-block-image {
+    right: 0; /* Position image on the right */
+}
+
+.home-block:nth-child(even) .home-block-text {
+    right: 10%; /* Position text to the left of image */
+    padding-right: calc(40% + 20px); /* Offset by image width + padding */
+    text-align: right; /* Right align text */
+}
+
+/* Specific block images */
+.home-block1 .home-block-image { background-image: url('../images/bankf.jpg'); }
+.home-block2 .home-block-image { background-image: url('../images/bank6.jpg'); }
+.home-block3 .home-block-image { background-image: url('../images/bank5.jpg'); }
+.home-block4 .home-block-image { background-image: url('../images/bank1jpeg.jpeg'); }
+.home-block5 .home-block-image { background-image: url('../images/bankf.jpg'); }
+
+/* Title within the intro section */
+.home-div h1 {
+    font-size: 5rem;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .home-block {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        margin-left: auto; /* Center blocks */
+        margin-right: auto;
+        position: relative;
+    }
+
+    .home-block:nth-child(odd),
+    .home-block:nth-child(even) {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-block-image {
+        width: 100%;
+        height: 200px;
+        margin: 0 0 20px 0;
+        position: static; /* Static position for stacking */
+    }
+
+    .home-block-text {
+        text-align: center;
+        padding: 0;
+        position: static; /* Static position for stacking */
+        transform: none;
+        top: auto;
+    }
+}

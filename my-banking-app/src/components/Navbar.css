@@ -1,0 +1,142 @@
+/* General styles for the navbar */
+.navbar {
+  background: transparent;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+.navbar.opaque {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  max-width: 1500px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  color: #002C54;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.fa-typo3 {
+  margin-left: 0.5rem;
+  font-size: 1.8rem;
+  color: #002C54;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* Navigation menu styles */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #002C54;
+  border: 2px solid #002C54;
+  margin-left:0.7em;
+  transition: background-color 0.2s ease;
+}
+
+.nav-links:hover {
+  background-color: #002C54;
+  color: #ffffff;
+}
+
+/* Alternate left and right alignment for nav items */
+.nav-item:nth-child(odd) {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.nav-item:nth-child(even) {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 960px) {
+  .navbar-container {
+    justify-content: space-between;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #002C54;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background: rgba(36, 34, 34, 0.9);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+  }
+
+  .nav-item {
+    margin: 20px 0;
+  }
+
+  .nav-links {
+    font-size: 1.5rem;
+    padding: 1em 2em;
+    border: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links:hover {
+    background: none;
+    color: #fff;
+  }
+
+}
