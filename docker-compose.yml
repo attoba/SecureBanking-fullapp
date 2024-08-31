@@ -4,7 +4,7 @@ services:
   db:
       image: mysql
       environment:
-        MYSQL_ROOT_PASSWORD: ABCDabcd00..
+        MYSQL_ROOT_PASSWORD: ........
         MYSQL_DATABASE: ibtissam
       ports:
         - "3307:3306"
@@ -22,7 +22,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/ibtissam
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: ABCDabcd00..
+      SPRING_DATASOURCE_PASSWORD: ..........
     networks:
       - spring-network
 
