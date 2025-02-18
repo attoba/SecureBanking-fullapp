@@ -65,7 +65,12 @@ jobs:
     - name: Create external network
       run: |
         docker network ls | grep spring-network || docker network create spring-network
-        
+
     - name: Deploy to production
+      env:
+        MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+        SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
       run: docker-compose -f ./docker-compose.yml up -d
         #docker-compose -f /home/runner/work/SecureBanking-fullapp/docker-compose.yml up -d

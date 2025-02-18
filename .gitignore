@@ -1,4 +1,4 @@
 .env
-ibtissam-bank/keystore.p12
-ibtissam-bank/localhost.p12
-my-banking-app/cert
+./ibtissam-bank/keystore.p12
+./ibtissam-bank/localhost.p12
+./my-banking-app/cert
