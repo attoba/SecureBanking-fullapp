@@ -54,13 +54,18 @@ jobs:
       with:
         ref: main
         fetch-depth: 0
-        
+
     - name: Install Docker Compose
       run: |
         sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
 
+    # Step 3: Create the external network if not exists
+    - name: Create external network
+      run: |
+        docker network ls | grep spring-network || docker network create spring-network
+        
     - name: Deploy to production
       run: docker-compose -f ./docker-compose.yml up -d
         #docker-compose -f /home/runner/work/SecureBanking-fullapp/docker-compose.yml up -d
