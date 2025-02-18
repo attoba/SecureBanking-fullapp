@@ -19,6 +19,9 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          
+      - name: List files
+        run: ls -R    
 
     # Step 2: Log in to Docker Hub
       - name: Log in to Docker Hub
@@ -34,7 +37,7 @@ jobs:
 
     # Step 5: Build Docker Image (Frontend)
       - name: Build Frontend Docker Image
-        run: docker build -t attoba/frontend-image:latest -f ./Dockerfile ./my-banking-app 
+        run: docker build -t attoba/frontend-image:latest -f ./my-banking-app/Dockerfile ./my-banking-app 
 
     # Step 6: Push Frontend Docker Image to Docker Hub
       - name: Push Frontend Docker Image
@@ -50,9 +53,6 @@ jobs:
         sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
-      
-    - name: List files
-      run: ls -R
 
     - name: Deploy to production
       run: docker-compose -f ./docker-compose.yml up -d
