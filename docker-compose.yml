@@ -4,8 +4,13 @@ services:
   db:
       image: mysql
       environment:
+<<<<<<< HEAD
         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         MYSQL_DATABASE: ${MYSQL_DATABASE}
+=======
+        MYSQL_ROOT_PASSWORD: ........
+        MYSQL_DATABASE: ibtissam
+>>>>>>> 4b28418ff232524a7cac41816a5f41ac9042e9a7
       ports:
         - "3307:3306"
       networks:
@@ -18,11 +23,17 @@ services:
       - "8080:8080"
     restart: always
     environment:
+<<<<<<< HEAD
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/ibtissam
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     depends_on:
         - db
+=======
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/ibtissam
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ..........
+>>>>>>> 4b28418ff232524a7cac41816a5f41ac9042e9a7
     networks:
       - spring-network
 
