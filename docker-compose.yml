@@ -4,14 +4,13 @@ services:
   db:
       image: mysql
       environment:
-        MYSQL_ROOT_PASSWORD: ABCDabcd00..
-        MYSQL_DATABASE: ibtissam
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+
       ports:
         - "3307:3306"
       networks:
         - spring-network
-      depends_on:
-        - backend
   backend:
     build:
       context: ./ibtissam-bank
@@ -20,9 +19,12 @@ services:
       - "8080:8080"
     restart: always
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/ibtissam
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: ABCDabcd00..
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/ibtissam
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+    depends_on:
+        - db
+
     networks:
       - spring-network
 

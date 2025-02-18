@@ -83,11 +83,8 @@ public class UserServiceImp implements UserService{
         if (userRepository.existsByEmail(userRequest.getEmail())){
             //logger.info("account created with email: {}", userRequest.getEmail());
 
-            return BankResponse.builder()
-                    .responseCode(AccountUtils.ACCOUNT_EXISTS_CODE)
-                    .responseMessage(AccountUtils.ACCOUNT_EXISTS_MESSAGE)
-                    .accountInfo(null)
-                    .build();
+            return  new BankResponse(AccountUtils.ACCOUNT_EXISTS_CODE,AccountUtils.ACCOUNT_EXISTS_MESSAGE,null);
+
         }
         String accountNumber = AccountUtils.generateAccountNumber();
 
@@ -172,6 +169,7 @@ public class UserServiceImp implements UserService{
     }
         catch (AuthenticationException e){
             logger.info("Failed login attempt for username: {}", loginDto.getEmail());
+            
         }
         return null;
     }

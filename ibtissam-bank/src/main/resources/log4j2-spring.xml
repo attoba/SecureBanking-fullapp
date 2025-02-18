@@ -8,7 +8,7 @@
         <SplunkHttp
                 name="bank-logs"
                 url="http://localhost:8088"
-                token="ac677a0e-3276-4685-89c6-531025c324dc"
+                token="${SPLUNK_TOKEN}"
                 host="localhost"
                 index="bank_app"
                 type="raw"
