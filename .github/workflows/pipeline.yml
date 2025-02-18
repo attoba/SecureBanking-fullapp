@@ -49,5 +49,5 @@ jobs:
         docker-compose --version
 
     - name: Deploy to production
-      run: |
-        docker-compose -f /home/runner/work/SecureBanking-fullapp/docker-compose.yml up -d
+      run: docker-compose up -d
+        #docker-compose -f /home/runner/work/SecureBanking-fullapp/docker-compose.yml up -d
