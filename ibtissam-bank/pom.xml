@@ -18,6 +18,7 @@
 	</properties>
 
 	<repositories>
+		<!--  -->
 		<repository>
 			<id>splunk-artifactory</id>
 			<name>Splunk Releases</name>
@@ -124,7 +125,7 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.1.Final</version> <!-- Use the latest version available -->
+			<version>8.0.1.Final</version> 
 		</dependency>
 
     </dependencies>

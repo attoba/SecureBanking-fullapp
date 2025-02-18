@@ -29,6 +29,11 @@ import org.springframework.security.web.header.writers.XXssProtectionHeaderWrite
 @EnableMethodSecurity
 @AllArgsConstructor
 public class SecurityConfig  {
+    public SecurityConfig(UserDetailsService userDetailsService, JwtAuthenticationFilter jwtAuthenticationFilter) {
+        this.userDetailsService = userDetailsService;
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    }
+
     @Bean
     public PasswordEncoder passwordEncoder(){
 
