@@ -49,7 +49,7 @@ jobs:
         docker-compose --version
       
     - name: List files
-      run: ls -la
+      run: ls -R
 
     - name: Deploy to production
       run: docker-compose -f docker-compose.yml up -d
