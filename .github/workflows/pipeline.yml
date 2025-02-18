@@ -19,7 +19,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-          
+
       - name: List files
         run: ls -R    
 
@@ -48,6 +48,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        fetch-depth: 0
+        
     - name: Install Docker Compose
       run: |
         sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
