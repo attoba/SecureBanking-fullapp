@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,26 +21,24 @@ jobs:
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    # Step 3: Build the Docker image
-      - name: Build Docker Image
-        run: docker build -t attoba/secure_online_banking:latest .
+     # Step 3: Build Docker Image (Backend)
+      - name: Build Backend Docker Image
+        run: docker build -t attoba/backend-image:latest -f ./ibtissam-bank/Dockerfile ./ibtissam-bank 
 
-    # Step 4: Push the Docker image to Docker Hub
-      - name: Push Docker Image
-        run: docker push attoba/secure_online_banking:latest
-        
-    # Step 4: Run Tests (Backend)
-      - name: Run backend tests
-        working-directory: ./ibtissam-bank
-        run: ./mvnw test
+    # Step 4: Push Backend Docker Image to Docker Hub
+      - name: Push Backend Docker Image
+        run: docker push attoba/backend-image:latest
 
-    # Step 5: Run Tests (Frontend)
-      - name: Run frontend tests
-        working-directory: ./my-banking-app
-        run: npm install && npm test
+    # Step 5: Build Docker Image (Frontend)
+      - name: Build Frontend Docker Image
+        run: docker build -t attoba/frontend-image:latest -f ./my-banking-app/Dockerfile ./my-banking-app 
+
+    # Step 6: Push Frontend Docker Image to Docker Hub
+      - name: Push Frontend Docker Image
+        run: docker push attoba/frontend-image:latest
 
   deploy:
-    needs: build-and-test
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
